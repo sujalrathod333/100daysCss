@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Card</title>
+  <style>
+    body{
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #1a1a1a;
+      height: 100vh;
+    }
+
+    .container{
+      perspective: 1000px;
+    }
+
+    .card{
+      height: 350px;
+      width: 250px;
+      border-radius: 10px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+    }
+
+    .card:hover{
+      transform: rotateY(180deg);
+    }
+
+    .card-front,
+    .card-back{
+      height: 100%;
+      width: 100%;
+      backface-visibility: hidden;
+      position: absolute;
+      color: #fff;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    .card-front{
+      background: #222;
+      border: 2px solid #0ff;
+
+      h2{
+        font-size: 24px;
+        margin: 10px 0;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      p{
+        font-size: 16px;
+        margin: 0;
+        padding: 0 10px;
+        text-align: center;
+      }
+    }
+
+    .card:hover{
+      transform: rotateX(180deg);
+
+    }
+
+    .card-back{
+      background: #0ff;
+      color: #222;
+      transform: rotateX(180deg);
+
+      h2{
+        font-size: 24px;
+        margin: 10px 0;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      p{
+        font-size: 16px;
+        margin: 0;
+        padding: 0 10px;
+        text-align: center;
+      }
+    }
+
+
+
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-front">
+        <h2>Front</h2>
+        <p>Hover to flip</p>
+      </div>
+      <div class="card-back">
+        <h2>back</h2>
+        <p>discover more details</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

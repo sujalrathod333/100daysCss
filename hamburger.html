@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hamburger</title>
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #222;
+      }
+      .hamburger {
+        width: 50px;
+        height: 40px;
+        position: relative;
+       cursor: pointer;
+      }
+
+      span {
+        display: block;
+        background: #0ff;
+        width: 100%;
+        transition: all .3s ease-in-out;
+        height: 6px;
+        position: absolute;
+        left: 0;
+        border-radius: 3px;
+      }
+
+      .hamburger span:nth-child(1){
+        top: 0;
+      }
+
+      .hamburger span:nth-child(2){
+        top: 17px;
+      }
+
+      .hamburger span:nth-child(3){
+        top: 34px;
+      }
+
+      .hamburger.active span:nth-child(1){
+        transform: translateY(17px) rotate(45deg);
+        background: #f0f;
+      }
+
+      .hamburger.active span:nth-child(2){
+       opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3){
+        transform: translateY(-17px) rotate(-45deg);
+         background: #f0f;
+      }
+
+      .hamburger:hover span{
+        box-shadow: 0 0 10px #0ff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+    <script>
+      const hamburger= document.querySelector('.hamburger');
+      hamburger.addEventListener('click', ()=> {
+        hamburger.classList.toggle('active')
+      })
+    </script>
+  </body>
+</html>
